@@ -1,7 +1,12 @@
 import React from "react";
 import "./middlepart.css";
+import LoginButton from "../../../../components/login-button/LoginButton";
+
+import { useAuth0, loginWithRedirect } from "@auth0/auth0-react";
 
 const MiddlePart = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <>
       <div className="">
@@ -26,6 +31,7 @@ const MiddlePart = () => {
             <br />
             <input
               type="button"
+              onClick={loginWithRedirect}
               className="getStartedBtn bg-[#4a4949] text-[#fff7f7] p-4 pr-6 pl-6  rounded-lg mr-[19rem]"
               style={{ fontFamily: "Poppins" }}
               value="Get Started!"

@@ -1,7 +1,9 @@
 import React from "react";
 import "./navbar.css";
+const { loginWithRedirect, useAuth0 } = useAuth0();
 
 const Navbar = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <>
       <nav className="bg-[#faeee7] border-gray-200 ">
@@ -75,6 +77,7 @@ const Navbar = () => {
                   aria-current="page"
                 >
                   <img
+                    onClick={loginWithRedirect}
                     src="https://cdn-icons-png.flaticon.com/128/4333/4333609.png"
                     alt="profile picture"
                     height="30px"
