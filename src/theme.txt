@@ -1,0 +1,5 @@
+bg = #faeee7
+headlineText = #33272a
+paragraphText = #594a4e
+buttonColor = #818181
+buttonTextColor = #fff7f7
