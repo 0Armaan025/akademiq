@@ -11,11 +11,12 @@ import StudentClassDetailsPage from "./pages/class/student/studentClassDetailsPa
 import TeacherClassCreationPage from "./pages/class/teacher/TeacherClassCreationPage";
 import TeacherProfileScreen from "./pages/profile/teacher/ProfileScreen";
 import StudentsListPage from "./pages/students-list/StudentsList";
+import ClassesListPage from "./pages/classes-list/ClassesListPage";
 
 export default function App() {
   return (
     <>
-      <TeacherProfileScreen />
+      <ClassesListPage />
     </>
   );
 }
