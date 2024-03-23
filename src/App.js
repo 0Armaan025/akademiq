@@ -5,11 +5,12 @@ import ProfileSetUpPage from "./pages/profile-set-up/teacher/ProfileSetUpPage";
 import ProfileScreen from "./pages/profile/student/ProfileScreen";
 import StudentOperationsPage from "./pages/operations/student/StudentOperationsPage";
 import TeacherOperationsPage from "./pages/operations/teacher/TeacherOperationsPage";
+import SavesPage from "./pages/saves/SavesPage";
 
 export default function App() {
   return (
     <>
-      <TeacherOperationsPage />
+      <ProfileScreen />
     </>
   );
 }

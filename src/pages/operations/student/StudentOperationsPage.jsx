@@ -21,7 +21,7 @@ const StudentOperationsPage = () => {
             <div className="component mt-8 px-8 py-8  transition-all hover:cursor-pointer hover:border-black border-1 bg-[#828282] text-center items-center justify-center flex flex-col rounded-lg hover:bg-[#605f5f]">
               <h4
                 className="text-2xl text-white font-semibold"
-                style={{ background: "none" }}
+                style={{ background: "none", fontFamily: "Poppins" }}
               >
                 AI FLASHCARDS
               </h4>
@@ -29,7 +29,7 @@ const StudentOperationsPage = () => {
             <div className="component ml-6 mt-8 px-8 py-8  transition-all hover:cursor-pointer hover:border-black border-1 bg-[#828282] text-center items-center justify-center flex flex-col rounded-lg hover:bg-[#605f5f]">
               <h4
                 className="text-2xl text-white font-semibold"
-                style={{ background: "none" }}
+                style={{ background: "none", fontFamily: "Poppins" }}
               >
                 AI NOTES/SUMMARIES
               </h4>
@@ -39,7 +39,7 @@ const StudentOperationsPage = () => {
             <div className="component mt-8 px-8 py-8  transition-all hover:cursor-pointer hover:border-black border-1 bg-[#828282] text-center items-start justify-start flex flex-col rounded-lg hover:bg-[#605f5f]">
               <h4
                 className="text-2xl text-white font-semibold"
-                style={{ background: "none" }}
+                style={{ background: "none", fontFamily: "Poppins" }}
               >
                 AI MENTOR
               </h4>
