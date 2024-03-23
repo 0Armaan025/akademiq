@@ -8,11 +8,14 @@ import TeacherOperationsPage from "./pages/operations/teacher/TeacherOperationsP
 import SavesPage from "./pages/saves/SavesPage";
 import StudentClassPage from "./pages/class/student/StudentClassPage";
 import StudentClassDetailsPage from "./pages/class/student/studentClassDetailsPage";
+import TeacherClassCreationPage from "./pages/class/teacher/TeacherClassCreationPage";
+import TeacherProfileScreen from "./pages/profile/teacher/ProfileScreen";
+import StudentsListPage from "./pages/students-list/StudentsList";
 
 export default function App() {
   return (
     <>
-      <StudentClassDetailsPage />
+      <StudentsListPage />
     </>
   );
 }

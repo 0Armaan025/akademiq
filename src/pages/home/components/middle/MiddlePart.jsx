@@ -3,6 +3,7 @@ import "./middlepart.css";
 import LoginButton from "../../../../components/login-button/LoginButton";
 
 import { useAuth0, loginWithRedirect } from "@auth0/auth0-react";
+import { RedirectToSignUp } from "@clerk/clerk-react";
 
 const MiddlePart = () => {
   const { loginWithRedirect } = useAuth0();
