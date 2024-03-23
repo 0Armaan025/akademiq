@@ -12,11 +12,12 @@ import TeacherClassCreationPage from "./pages/class/teacher/TeacherClassCreation
 import TeacherProfileScreen from "./pages/profile/teacher/ProfileScreen";
 import StudentsListPage from "./pages/students-list/StudentsList";
 import ClassesListPage from "./pages/classes-list/ClassesListPage";
+import ManageClassPage from "./pages/manage-class/ManageClassPage";
 
 export default function App() {
   return (
     <>
-      <ClassesListPage />
+      <ManageClassPage />
     </>
   );
 }
