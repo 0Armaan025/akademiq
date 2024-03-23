@@ -31,7 +31,7 @@ const StudentsListPage = () => {
       <br />
       <center>
         <h2 className="text-2xl font-bold " style={{ fontFamily: "Poppins" }}>
-          Class: some rnadom class name's students
+          Class: some random class name's students
         </h2>
       </center>
       <br />

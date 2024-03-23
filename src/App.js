@@ -15,7 +15,7 @@ import StudentsListPage from "./pages/students-list/StudentsList";
 export default function App() {
   return (
     <>
-      <StudentsListPage />
+      <TeacherProfileScreen />
     </>
   );
 }
