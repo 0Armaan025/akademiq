@@ -1,6 +1,6 @@
 import React from "react";
 import "./profilesetuppage.css";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../../components/navbar/Navbar";
 
 const ProfileSetupPage = () => {
   return (
@@ -41,7 +41,7 @@ const ProfileSetupPage = () => {
                 fontFamily: "Poppins",
               }}
             >
-              Enter your Mother's name
+              Enter your School name
             </label>
 
             <input
