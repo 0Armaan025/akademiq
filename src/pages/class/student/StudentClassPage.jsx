@@ -35,6 +35,8 @@ const StudentClassPage = () => {
       });
       Cookies.set("className", className);
       Cookies.set("classCode", classCode);
+      localStorage.setItem("className", className.toString());
+      localStorage.setItem("classCode", classCode.toString());
 
       console.log("Successfully joined the class!");
     } catch (error) {

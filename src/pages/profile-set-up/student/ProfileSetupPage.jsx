@@ -29,6 +29,8 @@ const ProfileSetupPage = () => {
       console.log(response.data); // Assuming your backend sends back saved user data
       Cookies.set("authenticated", "true");
       Cookies.set("role", "student");
+      localStorage.setItem("authenticated", "true");
+      localStorage.setItem("role", "student");
     } catch (error) {
       console.error("Error submitting form:", error);
       // Handle error

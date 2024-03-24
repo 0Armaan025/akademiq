@@ -30,6 +30,8 @@ const ProfileSetUpPage = () => {
       );
       Cookies.set("authenticated", "true");
       Cookies.set("role", "teacher");
+      localStorage.setItem("authenticated", "true");
+      localStorage.setItem("role", "teacher");
       console.log(response.data); // Assuming your backend sends back saved user data
       // Redirect or perform any other action upon successful submission
     } catch (error) {

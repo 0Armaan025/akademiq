@@ -19,9 +19,8 @@ const StudentClassDetailsPage = () => {
   const fetchData = async () => {
     try {
       // Retrieve class name and class code from cookie
-      const cookieClassName = Cookies.get("className");
-      const cookieClassCode = Cookies.get("classCode");
-      
+      const cookieClassName = localStorage.getItem("className");
+      const cookieClassCode = localStorage.getItem("classCode");
 
       // Set class name and class code from cookie
       setClassName(cookieClassName);
@@ -55,10 +54,10 @@ const StudentClassDetailsPage = () => {
             </h1>
             <p className="text-lg text-gray-600">Class Code: {classCode}</p>
           </div>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 w-full">
             {/* Announcements */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="p-6">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden w-full">
+              <div className="p-6 w-full">
                 <h2
                   className="text-3xl font-bold text-gray-800 mb-4"
                   style={{ fontFamily: "lato" }}
@@ -72,11 +71,11 @@ const StudentClassDetailsPage = () => {
                       className="bg-white rounded-lg shadow-md p-4 w-full mr-4"
                       style={{ background: "none" }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                        {announcement.title}
-                      </h3>
-                      <p className="text-gray-600 mb-2">
-                        {announcement.content}
+                      <p
+                        className="text-sm font-semibold text-gray-800 mb-2 w-[30rem]"
+                        style={{ background: "none", fontFamily: "Poppins" }}
+                      >
+                        {announcement.announcementText}
                       </p>
                     </div>
                     {index !== announcements.length - 1 && (
