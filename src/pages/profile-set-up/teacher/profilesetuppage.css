@@ -1,0 +1,18 @@
+.setupProfileBtn {
+    width: 200px; /* Set the desired width */
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #2ecc71; /* Green color */
+    color: #fff7f7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  
+  .setupProfileBtn:hover {
+    background-color: #3498db; /* Blue color on hover */
+    transform: scale(1.05);
+  }

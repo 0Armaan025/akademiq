@@ -128,12 +128,13 @@
     width: 180px;
     padding: 20px;
     height: calc(100% - 60px); /* Adjust height to fill remaining space */
-    background-color: #5b5b5b;
+    background-color: #1a202c;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: -20px;
   }
   
   .item {

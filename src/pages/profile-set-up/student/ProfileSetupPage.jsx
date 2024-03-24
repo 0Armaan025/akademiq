@@ -44,6 +44,7 @@ const ProfileSetupPage = () => {
           >
             Let's Setup your Profile! 🥳
           </h3>
+          </center>
           <br />
           <br />
           <div className="detailsField flex flex-col justify-start items-start bg-[#dadada] p-8 rounded-lg ">
@@ -124,8 +125,8 @@ const ProfileSetupPage = () => {
               </center>
             </div>
             </div>
-          </form>
-          <br />
+            </div>
+          <br /> 
       </>
     
   );
