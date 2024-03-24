@@ -1,6 +1,7 @@
 import React from "react";
 import "./profilesetuppage.css";
 import Navbar from "../../../components/navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const ProfileSetupPage = () => {
   return (
@@ -69,12 +70,14 @@ const ProfileSetupPage = () => {
               className="teacherSignUpDiv flex flex-row justify-end items-end w-full bg-none"
               style={{ background: "none" }}
             >
-              <h4
-                style={{ background: "none", fontFamily: "Poppins" }}
-                className="text-[#33272a] hover:cursor-pointer"
-              >
-                Click here to sign up as a teacher!
-              </h4>
+              <Link to="/teacher-profile-setup" style={{ background: "none" }}>
+                <h4
+                  style={{ background: "none", fontFamily: "Poppins" }}
+                  className="text-[#33272a] hover:cursor-pointer"
+                >
+                  Click here to sign up as a teacher!
+                </h4>
+              </Link>
             </div>
             <br />
             <div

@@ -1,0 +1,56 @@
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1711117479067-584465e4466a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  
+  .about-us-title {
+    font-size: 2.5rem;
+    background: none;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-description {
+    max-width: 600px;
+    text-align: center;
+    background: none;
+    padding: 0 20px;
+  }
+  
+  .animated-circles {
+    background: none;
+    display: flex;
+  }
+  
+  .animated-circle {
+    width: 50px;
+    height: 50px;
+    
+    border-radius: 50%;
+    margin: 0 10px;
+    animation: bounce 1s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .animated-circle:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .animated-circle:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
