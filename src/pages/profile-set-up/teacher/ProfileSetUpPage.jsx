@@ -2,8 +2,39 @@ import React from "react";
 import "./profilesetuppage.css";
 import Navbar from "../../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
 const ProfileSetUpPage = () => {
+  const [formData, setFormData] = useState({
+    email: "armaan33000@gmail.com", // Initial email value
+    name: "",
+    schoolName: "",
+    code: "0",
+    role: "teacher",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    console.log(formData);
+    // yes for student
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/create-teacher-user",
+        formData
+      );
+      console.log(response.data); // Assuming your backend sends back saved user data
+      // Redirect or perform any other action upon successful submission
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle error
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -31,6 +62,8 @@ const ProfileSetUpPage = () => {
 
             <input
               type="text"
+              name="name"
+              onChange={handleChange}
               className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
             />
             <br />
@@ -46,6 +79,8 @@ const ProfileSetUpPage = () => {
             </label>
 
             <input
+              name="schoolName"
+              onChange={handleChange}
               type="text"
               className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
             />
@@ -62,7 +97,9 @@ const ProfileSetUpPage = () => {
             </label>
 
             <input
-              type="number"
+              name="code"
+              onChange={handleChange}
+              type="text"
               className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
             />
             <br />
@@ -86,6 +123,7 @@ const ProfileSetUpPage = () => {
             >
               <center>
                 <button
+                  onClick={handleSubmit}
                   className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
                   value=""
                   style={{ fontFamily: "Poppins" }}

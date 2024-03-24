@@ -1,41 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./studentslist.css";
 import Navbar from "../../components/navbar/Navbar";
+import TeacherLeftSideBar from "../../components/teacher-left-side-bar/TeacherLeftSideBar";
 
 const StudentsListPage = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    // Fetch random animal images
-    const fetchRandomAnimalImages = async () => {
+    const fetchStudents = async () => {
       try {
-        const response = await axios.get(
-          "https://picsum.photos/v2/list?page=1&limit=10&query=animal"
-        ); // Fetching 10 random images
-        const animalImages = response.data.map((photo) => ({
-          profilePicture: photo.download_url, // Using image URLs from Lorem Picsum
-        }));
-        setStudents(animalImages);
+        const response = await axios.get("http://localhost:5000/students");
+        setStudents(response.data);
       } catch (error) {
-        console.error("Error fetching animal images:", error);
+        console.error("Error fetching students:", error);
       }
     };
 
-    fetchRandomAnimalImages();
+    fetchStudents();
   }, []);
+
+  // Function to generate a random image URL from Lorem Picsum API
+  const generateRandomImage = () => {
+    const randomImageId = Math.floor(Math.random() * 1000); // Generate random image ID
+    return `https://picsum.photos/200/200?random=${randomImageId}`;
+  };
 
   return (
     <>
       <Navbar />
+      <TeacherLeftSideBar />
       <br />
       <center>
-        <h2 className="text-2xl font-bold " style={{ fontFamily: "Poppins" }}>
-          Class: some random class name's students
+        <h2 className="text-2xl font-bold" style={{ fontFamily: "Poppins" }}>
+          Class: Some Random Class Name's Students
         </h2>
       </center>
       <br />
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 ml-64 mr-16">
         {students.map((student, index) => (
           <div
             key={index}
@@ -43,7 +44,7 @@ const StudentsListPage = () => {
           >
             {/* Profile picture */}
             <img
-              src={student.profilePicture}
+              src={generateRandomImage()}
               alt="Profile"
               className="w-16 h-16 rounded-full mr-4"
             />
@@ -52,7 +53,10 @@ const StudentsListPage = () => {
             <span
               className="flex-grow text-xl font-semibold"
               style={{ background: "none", fontFamily: "Poppins" }}
-            >{`Student ${index + 1}`}</span>
+            >
+              {student.name}{" "}
+              {/* Assuming student object has a 'name' property */}
+            </span>
 
             {/* Arrow button */}
             <button className="bg-[#818181] text-[#fff7f7] font-bold py-2 px-4 rounded">

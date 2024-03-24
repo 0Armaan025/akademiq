@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../../../components/navbar/Navbar";
 import "./teacherclasscreationpage.css";
 import LeftSideBar from "../../../components/leftsidebar/LeftSideBar";
+import axios from "axios";
+import TeacherLeftSideBar from "../../../components/teacher-left-side-bar/TeacherLeftSideBar";
 
 const TeacherClassCreationPage = () => {
   // State to hold the class name and class code
@@ -15,10 +17,22 @@ const TeacherClassCreationPage = () => {
   };
 
   // Function to handle class creation
-  const handleCreateClass = () => {
-    // Here, you can implement the logic to create a class in your backend
-    // For now, let's just generate a class code
+  const handleCreateClass = async () => {
     generateClassCode();
+    console.log({ className, classCode });
+    try {
+      // Send a POST request to create a class
+      const response = await axios.post(
+        "http://localhost:5000/create-class", // Update the URL with your backend endpoint
+        { className, classCode }
+      );
+      console.log("Class created:", response.data);
+      // Set the generated class code
+      setClassCode(response.data.classCode);
+    } catch (error) {
+      console.error("Error creating class:", error);
+      // Handle errors here
+    }
   };
 
   // Function to handle copying class code to clipboard
@@ -39,7 +53,7 @@ const TeacherClassCreationPage = () => {
     <>
       <Navbar />
       <div className="teacherOperationsPage flex flex-row">
-        <LeftSideBar />
+        <TeacherLeftSideBar />
         <div className="rightSide flex flex-col pl-64">
           <div className="flex flex-col items-center mt-8">
             <h2

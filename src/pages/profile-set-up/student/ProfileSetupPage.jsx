@@ -10,6 +10,7 @@ const ProfileSetupPage = () => {
     name: "",
     fatherName: "",
     motherName: "",
+    role: "student",
   });
 
   const handleChange = (e) => {
@@ -17,9 +18,13 @@ const ProfileSetupPage = () => {
   };
 
   const handleSubmit = async (e) => {
+    // yes for student
     e.preventDefault();
     try {
-      const response = await axios.post("/create-student-user", formData);
+      const response = await axios.post(
+        "http://localhost:5000/create-student-user",
+        formData
+      );
       console.log(response.data); // Assuming your backend sends back saved user data
       // Redirect or perform any other action upon successful submission
     } catch (error) {
