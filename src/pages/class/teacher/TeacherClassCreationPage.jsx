@@ -11,14 +11,14 @@ const TeacherClassCreationPage = () => {
   const [classCode, setClassCode] = useState("");
 
   // Function to generate a random class code
-  const generateClassCode = () => {
+  const generateClassCode = async () => {
     const code = Math.random().toString(36).substr(2, 6).toUpperCase();
     setClassCode(code);
   };
 
   // Function to handle class creation
   const handleCreateClass = async () => {
-    generateClassCode();
+    await generateClassCode();
     console.log({ className, classCode });
     try {
       // Send a POST request to create a class

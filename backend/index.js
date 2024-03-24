@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 5000;
@@ -9,6 +10,8 @@ const MongooseConnect =
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+
 mongoose
   .connect(MongooseConnect, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -82,6 +85,9 @@ app.post("/create-student-user", async (req, res) => {
       role, // Set role as student
     });
     const savedUser = await newUser.save();
+
+    res.cookie("authState", "authenticated"); // 'authState' cookie
+    res.cookie("role", "student"); // 'role' cookie
     res.status(201).json(savedUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -100,6 +106,8 @@ app.post("/create-teacher-user", async (req, res) => {
       role,
     });
     const savedUser = await newUser.save();
+    res.cookie("authState", "authenticated"); // 'authState' cookie
+    res.cookie("role", "teacher"); // 'role' cookie
     res.status(201).json(savedUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -186,11 +194,53 @@ app.get("/students/:classCode", async (req, res) => {
   try {
     const classCode = req.params.classCode;
     const foundClass = await Class.findOne({ classCode });
+
     if (!foundClass) {
       return res.status(404).json({ message: "Class not found" });
     }
     const students = await Student.find({ name: { $in: foundClass.students } });
     res.json(students);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/join-class", async (req, res) => {
+  try {
+    const { classCode, username } = req.body;
+
+    // Find the document in the Class collection with the provided classCode
+    const foundClass = await Class.findOne({ classCode });
+
+    if (!foundClass) {
+      return res.status(404).json({ message: "Class not found" });
+    }
+
+    // Check if the username is already in the students array
+    if (foundClass.students.includes(username)) {
+      return res.status(400).json({ message: "User already joined the class" });
+    }
+
+    // Append the username to the students array
+    foundClass.students.push(username);
+    await foundClass.save();
+
+    res.json({ message: "Joined class successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/search-classname/:classCode", async (req, res) => {
+  try {
+    const { classCode } = req.params;
+    // Find the document in the Class collection with the provided classCode
+    const foundClass = await Class.findOne({ classCode });
+    if (!foundClass) {
+      return res.status(404).json({ message: "Class not found" });
+    }
+    // Return the className associated with the classCode
+    res.json({ className: foundClass.className });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

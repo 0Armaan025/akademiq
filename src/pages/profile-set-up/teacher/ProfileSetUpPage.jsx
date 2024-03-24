@@ -4,6 +4,7 @@ import Navbar from "../../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const ProfileSetUpPage = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +28,8 @@ const ProfileSetUpPage = () => {
         "http://localhost:5000/create-teacher-user",
         formData
       );
+      Cookies.set("authenticated", "true");
+      Cookies.set("role", "teacher");
       console.log(response.data); // Assuming your backend sends back saved user data
       // Redirect or perform any other action upon successful submission
     } catch (error) {
