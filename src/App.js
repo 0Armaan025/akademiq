@@ -21,7 +21,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<ProfileSetupPage />} />
+        <Route exact path="/" element={<AboutUsPage />} />
 
         <Route path="/student-profile-setup" element={<ProfileSetupPage />} />
         <Route path="/teacher-profile-setup" element={<ProfileSetUpPage />} />
