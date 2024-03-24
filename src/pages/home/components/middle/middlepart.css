@@ -43,19 +43,22 @@
     transition: transform 0.3s;
     min-height: 100vh; /* Ensure the MiddlePart fills the screen */
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
-  
+    
   
   .featuresContainer {
     margin-top: 50px;
   }
   
   .feature {
-    display: none;
+    display: flex; /* Show all features by default */
   }
   
+  .feature:not(:first-child) {
+    display: none; /* Hide all features except the first */
+  }
   .feature.active {
     display: flex;
   }

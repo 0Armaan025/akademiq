@@ -15,6 +15,7 @@ import ClassesListPage from "./pages/classes-list/ClassesListPage";
 import ManageClassPage from "./pages/manage-class/ManageClassPage";
 import AboutUsPage from "./pages/about/AboutUsPage";
 import { Route, Routes } from "react-router-dom";
+import FlashCardPage from "./pages/flashcard_page/FlashCardPage";
 
 export default function App() {
   return (
@@ -27,7 +28,7 @@ export default function App() {
         <Route path="/student-profile" element={<ProfileScreen />} />
         <Route path="/teacher-profile" element={<TeacherProfileScreen />} />
         <Route path="/student-operations" element={<StudentOperationsPage />} />
-        <Route path="/teacer-operations" element={<TeacherOperationsPage />} />
+        <Route path="/teacher-operations" element={<TeacherOperationsPage />} />
         <Route path="/saves" element={<SavesPage />} />
         <Route path="/join-class" element={<StudentClassPage />} />
         <Route path="/student-class" element={<StudentClassDetailsPage />} />
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/classes" element={<ClassesListPage />} />
         <Route path="/manage-class" element={<ManageClassPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/flash-cards" element={<FlashCardPage />} />
       </Routes>
     </>
   );

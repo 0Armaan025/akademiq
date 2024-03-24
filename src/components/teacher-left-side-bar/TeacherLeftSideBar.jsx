@@ -9,16 +9,24 @@ const TeacherLeftSideBar = () => {
     <div className="leftSideBarWrapper">
       <div className="leftSideBar bg-[#5b5b5b] rounded-r-md">
         <div className="item">
-          <h3 className="itemHeader">Profile</h3>
+          <h3 className="itemHeader" style={{ background: "none" }}>
+            Profile
+          </h3>
         </div>
         <div className="item">
-          <h3 className="itemHeader">Operations</h3>
+          <h3 className="itemHeader" style={{ background: "none" }}>
+            Operations
+          </h3>
         </div>
         <div className="item">
-          <h3 className="itemHeader">Students</h3>
+          <h3 className="itemHeader" style={{ background: "none" }}>
+            Students
+          </h3>
         </div>
         <div className="item">
-          <h3 className="itemHeader">Classes</h3>
+          <h3 className="itemHeader" style={{ background: "none" }}>
+            Classes
+          </h3>
         </div>
         <div
           className="item"
