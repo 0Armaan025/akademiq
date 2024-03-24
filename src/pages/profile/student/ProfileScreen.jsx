@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../../components/navbar/Navbar";
 import { useAuth0 } from "@auth0/auth0-react";
 import LeftSideBar from "../../../components/leftsidebar/LeftSideBar";
+import { Link } from "react-router-dom";
 
 const ProfileScreen = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -38,9 +39,17 @@ const ProfileScreen = () => {
       <div className="profileScreen flex flex-row ">
         <LeftSideBar />
         <div className="rightSide ml-64 p-6" style={{ background: "none" }}>
-          <h2 className="text-4xl font-semibold mb-4">
+          <h2
+            className="text-4xl font-semibold mb-4"
+            style={{ fontFamily: "Poppins" }}
+          >
             Good evening, Armaan 👋
           </h2>
+          <Link to="/teacher-profile-setup">  
+            <h4 className="absolute right-[18rem] top-[9rem] text-blue-800 hover:cursor-pointer">
+              Want to teach? Click here!
+            </h4>
+          </Link>
           {!isAuthenticated && (
             <div className="profileInfo bg-white shadow-md rounded-lg p-6">
               <div
