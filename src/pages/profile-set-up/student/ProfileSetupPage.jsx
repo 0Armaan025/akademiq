@@ -123,8 +123,8 @@ const ProfileSetupPage = () => {
                 </button>
               </center>
             </div>
-            </div>
-          </form>
+          </div>
+
           <br />
         </center>
       </div>
