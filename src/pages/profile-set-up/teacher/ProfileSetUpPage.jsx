@@ -10,7 +10,7 @@ const ProfileSetUpPage = () => {
       <div className="profileSetupPage flex flex-col justify-center items-center">
         <center>
           <h3
-            className="mt-8 text-4xl font-bold text-#33272a]"
+            className="mt-8 text-4xl font-bold text-#33272a"
             style={{ fontFamily: "Poppins" }}
           >
             Let's Setup your Profile! 🏫
@@ -85,13 +85,14 @@ const ProfileSetUpPage = () => {
               style={{ background: "none" }}
             >
               <center>
-                <button
-                  className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
-                  value=""
-                  style={{ fontFamily: "Poppins" }}
-                >
-                  Set up!
-                </button>
+              <button
+              className="setupProfileBtn py-4 px-24 text-xl font-semibold rounded-l-lg rounded-r-lg bg-[#4CAF50] text-white hover:bg-blue-500 transform hover:scale-110 transition-all duration-300"
+              value=""
+              style={{ fontFamily: "Poppins" }}
+            >
+              Set up!
+            </button>
+
               </center>
             </div>
           </div>

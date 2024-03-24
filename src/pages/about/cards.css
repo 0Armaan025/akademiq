@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent; /* Set background color to transparent */
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    position: relative;
+    height: 320px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Adjust card width as needed */
+    margin: 15px; /* Add margin around each card for spacing */
+    padding: 20px; /* Add padding inside each card */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    background-color: transparent; /* Set background color to transparent */
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    border: 2px solid #ff6b6b; /* Add border */
+    box-shadow: none; /* Remove box shadow */
+    background: none;
+  }
+  
+  .card:hover {
+    height: 400px;
+  }
+  
+  .image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .content {
+    padding: 10px 15px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+  }
+  
+  .card:hover .content {
+    opacity: 1;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  

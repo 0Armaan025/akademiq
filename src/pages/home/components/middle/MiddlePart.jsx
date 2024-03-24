@@ -10,13 +10,14 @@ const MiddlePart = () => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [scrollPosition]);
+  
 
   // Determine the current paragraph based on scroll position
   const currentParagraph = Math.floor(scrollPosition / window.innerHeight);
