@@ -1,41 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import Axios for making HTTP requests
 import Navbar from "../../components/navbar/Navbar";
 import TeacherLeftSideBar from "../../components/teacher-left-side-bar/TeacherLeftSideBar";
 
 const ManageClassPage = () => {
-  const [announcements, setAnnouncements] = useState([]); // State to manage all announcements
-  const [announcement, setAnnouncement] = useState(""); // State to manage the announcement added by the teacher
+  const [announcements, setAnnouncements] = useState([]);
+  const [announcement, setAnnouncement] = useState("");
+
+  useEffect(() => {
+    // Fetch announcements when the component mounts
+    fetchAnnouncements();
+  }, []); // Empty dependency array ensures this effect runs only once, like componentDidMount
+
+  const fetchAnnouncements = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/announcements"); // Make GET request to fetch announcements
+      setAnnouncements(response.data); // Update state with fetched announcements
+    } catch (error) {
+      console.error("Error fetching announcements:", error);
+    }
+  };
 
   const handleAnnouncementChange = (event) => {
     setAnnouncement(event.target.value);
   };
 
   const handleKeyDown = (event) => {
-    // Check if the user presses Shift + Enter
     if (event.key === "Enter" && event.shiftKey) {
-      // Add a new line character to the announcement text
       setAnnouncement(announcement + "\n");
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Check if the announcement is empty
     if (announcement.trim() !== "") {
-      // Add the new announcement to the list
-      setAnnouncements([
-        ...announcements,
-        { text: announcement.trim(), timestamp: new Date().toLocaleString() },
-      ]);
-      // Clear the input field after submitting
-      setAnnouncement("");
+      try {
+        // Make POST request to create a new announcement
+        await axios.post("http://localhost:5000/announce", {
+          announcementText: announcement.trim(),
+        });
+        // Refetch announcements after successful submission
+        fetchAnnouncements();
+        setAnnouncement(""); // Clear input field after submission
+      } catch (error) {
+        console.error("Error creating announcement:", error);
+      }
     }
   };
 
-  const handleDeleteAnnouncement = (index) => {
-    const updatedAnnouncements = [...announcements];
-    updatedAnnouncements.splice(index, 1);
-    setAnnouncements(updatedAnnouncements);
+  const handleDeleteAnnouncement = async (index) => {
+    try {
+      await axios.delete(
+        `http://localhost:5000/announce/${announcements[index]._id}`
+      ); // Make DELETE request to delete announcement
+      // Update state by filtering out the deleted announcement
+      setAnnouncements(announcements.filter((_, i) => i !== index));
+    } catch (error) {
+      console.error("Error deleting announcement:", error);
+    }
   };
 
   return (
@@ -45,12 +67,14 @@ const ManageClassPage = () => {
       <div className="container mx-auto mt-8">
         <h2 className="text-2xl font-bold mb-4">Manage Class</h2>
         <div className="p-4 ml-48 absolute bottom-0 w-[65rem]">
-          {/* Render all announcements */}
           <div className="mb-4 max-h-[20rem] overflow-y-auto">
             {announcements.map((item, index) => (
               <div key={index} className="mb-2 flex justify-between">
                 <div className="font-bold flex flex-row">
-                  You: <h3 className="font-semibold ml-1">{item.text}</h3>
+                  You:{" "}
+                  <h3 className="font-semibold ml-1">
+                    {item.announcementText}
+                  </h3>
                 </div>
                 <div className="flex items-center">
                   <span className="text-gray-500 mr-2">{item.timestamp}</span>
@@ -73,7 +97,6 @@ const ManageClassPage = () => {
               </div>
             ))}
           </div>
-          {/* Input form for adding new announcement */}
           <form onSubmit={handleSubmit}>
             <div className="flex items-center">
               <textarea
@@ -82,12 +105,12 @@ const ManageClassPage = () => {
                 value={announcement}
                 onChange={handleAnnouncementChange}
                 onKeyDown={handleKeyDown}
-                rows={4} // Set number of rows to allow multiline input
+                rows={4}
               />
               <button
                 type="submit"
                 className="bg-[#818181] text-white px-8 py-3 rounded h-[3.8rem] text-xl focus:outline-none"
-                style={{ fontFamily: "Poppins", minWidth: "120px" }} // Adjust button width
+                style={{ fontFamily: "Poppins", minWidth: "120px" }}
               >
                 Send
               </button>

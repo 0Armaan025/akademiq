@@ -205,6 +205,58 @@ app.get("/get-classes", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+const announcementSchema = new mongoose.Schema({
+  announcementText: {
+    type: String,
+    required: true,
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+// Create model for Announcements
+const Announcement = mongoose.model("Announcement", announcementSchema);
+
+// Endpoint to create a new announcement
+app.post("/announce", async (req, res) => {
+  try {
+    const { announcementText } = req.body;
+    const newAnnouncement = new Announcement({
+      announcementText,
+    });
+    const savedAnnouncement = await newAnnouncement.save();
+    res.status(201).json(savedAnnouncement);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+app.delete("/announce/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedAnnouncement = await Announcement.findByIdAndDelete(id);
+    if (!deletedAnnouncement) {
+      return res.status(404).json({ message: "Announcement not found" });
+    }
+    res.json({ message: "Announcement deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Endpoint to get all announcements
+app.get("/announcements", async (req, res) => {
+  try {
+    const announcements = await Announcement.find().sort({ timestamp: -1 });
+    res.json(announcements);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log("App running on port", PORT);
 });
