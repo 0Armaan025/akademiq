@@ -6,25 +6,25 @@ const LeftSideBar = () => {
   const { logout } = useAuth0(); // Access the logout function from Auth0
 
   return (
-    <div className="leftSideBarWrapper">
-      <div className="leftSideBar bg-[#5b5b5b] rounded-r-md">
-        <div className="item">
-          <h3 className="itemHeader">Profile</h3>
+    <div className="left-sidebar-wrapper">
+      <div className="left-sidebar bg-gray-900 rounded-lg shadow-lg">
+        <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
+          <h3 className="item-header text-lg font-semibold text-gray-200">Profile</h3>
         </div>
-        <div className="item">
-          <h3 className="itemHeader">Operations</h3>
+        <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
+          <h3 className="item-header text-lg font-semibold text-gray-200">Operations</h3>
         </div>
-        <div className="item">
-          <h3 className="itemHeader">Saves</h3>
+        <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
+          <h3 className="item-header text-lg font-semibold text-gray-200">Saves</h3>
         </div>
-        <div className="item">
-          <h3 className="itemHeader">Class</h3>
+        <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
+          <h3 className="item-header text-lg font-semibold text-gray-200">Class</h3>
         </div>
         <div
-          className="item"
+          className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300"
           onClick={() => logout({ returnTo: window.location.origin })}
         >
-          <h3 className="itemHeader">Log Out</h3>
+          <h3 className="item-header text-lg font-semibold text-gray-200">Log Out</h3>
         </div>
       </div>
     </div>

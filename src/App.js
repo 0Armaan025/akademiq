@@ -11,6 +11,7 @@ import StudentClassDetailsPage from "./pages/class/student/studentClassDetailsPa
 import TeacherClassCreationPage from "./pages/class/teacher/TeacherClassCreationPage";
 import TeacherProfileScreen from "./pages/profile/teacher/ProfileScreen";
 import StudentsListPage from "./pages/students-list/StudentsList";
+import LeftSideBar from "./components/leftsidebar/LeftSideBar";
 
 export default function App() {
   return (

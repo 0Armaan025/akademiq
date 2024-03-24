@@ -1,62 +1,50 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; /* Adjust this height according to your navbar */
-    background-color: #333;
-    z-index: 1000; /* Ensure navbar is above other content */
-  }
-  
-  .leftSideBarWrapper {
-    position: fixed;
-    top: 30px; /* Height of the navbar */
-    bottom: 0;
-    left: 0;
-    display: flex;
-    background: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999; /* Ensure sidebar is below navbar */
-  }
-  
-  .leftSideBar {
-    width: 180px;
-    padding: 20px;
-    height: calc(100% - 60px); /* Adjust height to fill remaining space */
-    background-color: #5b5b5b;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
-  .item {
-    margin-bottom: 15px;
-    padding: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 5px;
-    background: #3e3c3c;
-  }
-  
-  .item:hover {
-    width: 150px;
-  }
-  
-  .itemHeader {
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    background: none;
-  }
-  
-  .item hr {
-    margin-top: 5px;
-    width: 100%;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
+.left-sidebar-wrapper {
+  position: fixed;
+  top: 60px; /* Adjust based on navbar height */
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* Stack navbar and sidebar vertically */
+  background: none;
+  z-index: 999; /* Ensure sidebar is below navbar */
+}
+
+.left-sidebar {
+  width: 220px; /* Increase width for better visibility */
+  padding: 20px;
+  height: calc(100vh - 60px); /* Adjust height to fill remaining space */
+  background-color: #1a202c;
+  border-radius: 15px; /* Increase border radius for a smoother look */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+}
+
+.item {
+  margin-bottom: 20px; /* Increase margin for better separation */
+  padding: 12px 24px; /* Adjust padding for icons */
+  cursor: pointer;
+  border-radius: 8px;
+  background: #2d3748; /* Darken background for better contrast */
+  display: flex;
+  align-items: center; /* Align icons and text vertically */
+}
+
+.item:hover {
+  width: 240px; /* Increase hover width slightly */
+  background-color: #2e72e8; /* Darken background on hover */
+  color: red;
+}
+
+.itemHeader {
+  color: #cbd5e0; /* Lighten text color for better readability */
+  font-family: "Poppins", sans-serif;
+  font-weight: 500; /* Increase font weight for emphasis */
+  font-size: 16px; /* Adjust font size slightly */
+  margin-left: 10px; /* Adjust margin for icons */
+}
+
+.item i {
+  margin-right: 10px; /* Add space between icon and text */
+}

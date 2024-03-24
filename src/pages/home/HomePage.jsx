@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar";
-import "../../index.css";
 import MiddlePart from "./components/middle/MiddlePart";
 import Footer from "../../components/footer/Footer";
 
+
 const HomePage = () => {
   return (
-    <div>
+    <div className="homePage">
       <Navbar />
       <MiddlePart />
       <Footer />

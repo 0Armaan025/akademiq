@@ -4,9 +4,113 @@
     left: 0;
     width: 100%;
     height: 60px; /* Adjust this height according to your navbar */
-    background-color: #333;
+    background-color: #0011ff;
     z-index: 1000; /* Ensure navbar is above other content */
   }
+  
+  /* Add this CSS to your existing CSS file */
+
+.form-input1 {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input1:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+  .profile-info {
+    background-color: #f9fafb; /* Light gray background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Padding inside the profile info box */
+  }
+  
+  .profile-info label {
+    font-size: 16px; /* Label font size */
+    color: #4a4a4a; /* Dark gray text color */
+  }
+  
+  .profile-info .form-input {
+    width: 100%; /* Full width input */
+    padding: 10px; /* Padding inside input */
+    margin-top: 6px; /* Spacing between input and label */
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 6px; /* Rounded corners for input */
+    font-size: 16px; /* Input font size */
+  }
+  
+  .profile-info .form-input:focus {
+    outline: none; /* Remove outline on focus */
+    border-color: #4a90e2; /* Blue border color on focus */
+  }
+  
+
+.btn-edit,
+.btn-save {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.7s ease;
+}
+
+.btn-edit:hover,
+.btn-save:hover {
+  transform: scale(1.1);
+}
+
+  .btn-edit {
+    background-color: #ff0000; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 8px 24px; /* Padding for button */
+    border-radius: 8px; /* Rounded corners */
+    font-family: "Poppins", sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    width: 120px; /* Increase width */
+    height: 40px; /* Decrease height */
+  }
+  
+  .btn-edit:hover {
+    background-color: #ff0000; /* Darker blue color on hover */
+  }
+  
+  .btn-edit span {
+    margin-right: 5px; /* Add space between icon and text */
+  }
+
+  .btn-save {
+    background-color: #4a90e2; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 8px 24px; /* Padding for button */
+    border-radius: 8px; /* Rounded corners */
+    font-family: "Poppins", sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    width: 120px; /* Increase width */
+    height: 40px; /* Decrease height */
+  }
+  
+  .btn-save:hover {
+    background-color: #3579b0; /* Darker blue color on hover */
+  }
+  
+  .btn-save span {
+    margin-right: 5px; /* Add space between icon and text */
+  }
+  
   
   .leftSideBarWrapper {
     position: fixed;
