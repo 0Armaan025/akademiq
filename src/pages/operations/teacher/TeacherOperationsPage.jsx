@@ -8,7 +8,7 @@ const TeacherOperationsPage = () => {
     <>
       <Navbar />
       <div className="studentOperationsPage flex flex-row">
-        <TeacherOperationsPage />
+        <TeacherLeftSideBar />
         <div className="rightSide flex flex-col pl-64">
           <h4
             className="text-3xl mr-16 underline"

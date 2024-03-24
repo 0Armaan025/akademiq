@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import TeacherLeftSideBar from "../../components/teacher-left-side-bar/TeacherLeftSideBar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ClassesListPage = () => {
   // State to hold the classes data
@@ -39,20 +40,24 @@ const ClassesListPage = () => {
             className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-md w-full transition-all hover:scale-105 hover:cursor-pointer"
           >
             {/* Class name */}
-            <span
-              className="text-xl font-semibold"
-              style={{ background: "none" }}
-            >
-              {classItem.className}
-            </span>
+            <Link to="/manage-class" style={{ background: "none" }}>
+              <span
+                className="text-xl font-semibold"
+                style={{ background: "none" }}
+              >
+                {classItem.className}
+              </span>
+            </Link>
 
             {/* Class code */}
-            <span
-              className="text-xl font-semibold"
-              style={{ background: "none" }}
-            >
-              {classItem.classCode}
-            </span>
+            <Link to="/manage-class" style={{ background: "none" }}>
+              <span
+                className="text-xl font-semibold"
+                style={{ background: "none" }}
+              >
+                {classItem.classCode}
+              </span>
+            </Link>
           </div>
         ))}
       </div>
