@@ -104,7 +104,7 @@ app.get("/get-student-data/:name", async (req, res) => {
     const name = req.params.name;
     const student = await User.findOne({ name, role: "student" });
     if (!student) {
-      return res.status(404).json({ message: "Student not found" });
+      return res.status(404).jsoan({ message: "Student not found" });
     }
     res.json(student);
   } catch (error) {
