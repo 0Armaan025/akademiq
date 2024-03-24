@@ -16,12 +16,13 @@ import ManageClassPage from "./pages/manage-class/ManageClassPage";
 import AboutUsPage from "./pages/about/AboutUsPage";
 import { Route, Routes } from "react-router-dom";
 import FlashCardPage from "./pages/flashcard_page/FlashCardPage";
+import NotesPage from "./pages/notes/NotesPage";
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<AboutUsPage />} />
+        <Route exact path="/" element={<ProfileSetupPage />} />
 
         <Route path="/student-profile-setup" element={<ProfileSetupPage />} />
         <Route path="/teacher-profile-setup" element={<ProfileSetUpPage />} />
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/manage-class" element={<ManageClassPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/flash-cards" element={<FlashCardPage />} />
+        <Route path="/notes" element={<NotesPage />} />
       </Routes>
     </>
   );
