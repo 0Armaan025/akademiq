@@ -1,51 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/navbar/Navbar";
 import LeftSideBar from "../../../components/leftsidebar/LeftSideBar";
 import "./studentclassdetailspage.css";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const StudentClassDetailsPage = () => {
-  // Sample class details
-  const className = "Mathematics";
-  const classCode = "ABC123";
+  const [className, setClassName] = useState("");
+  const [classCode, setClassCode] = useState("");
+  const [announcements, setAnnouncements] = useState([]);
+  const [timestamp, setTimestamp] = useState("");
 
-  // Sample announcements data
-  const announcements = [
-    {
-      title: "Announcement 1",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      title: "Announcement 2",
-      content:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      title: "Announcement 2",
-      content:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      title: "Announcement 2",
-      content:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      title: "Announcement 2",
-      content:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    // Add more announcements as needed
-  ];
+  useEffect(() => {
+    // Fetch class details and announcements
+    fetchData();
+  }, []); // Empty dependency array ensures this effect runs only once
 
-  // Get current timestamp
-  const timestamp = new Date().toLocaleString();
+  const fetchData = async () => {
+    try {
+      // Retrieve class name and class code from cookie
+      const cookieClassName = localStorage.getItem("className");
+      const cookieClassCode = localStorage.getItem("classCode");
+
+      // Set class name and class code from cookie
+      setClassName(cookieClassName);
+      setClassCode(cookieClassCode);
+
+      // Fetch announcements
+      const announcementsResponse = await axios.get(
+        "http://localhost:5000/announcements"
+      );
+      setAnnouncements(announcementsResponse.data);
+
+      // Set current timestamp
+      setTimestamp(new Date().toLocaleString());
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <>
       <Navbar />
       <div className="studentOperationsPage flex flex-row bg-[#faeee7]">
         <LeftSideBar />
-        <div className="rightSide flex flex-col pl-64 p-4 bg-[#faeee7]">
+        <div className="rightSide flex flex-col pl-64 p-4 bg-[#faeee7] ml-64">
           <div className="mb-8">
             <h1
               className="text-3xl font-bold text-gray-800 mb-2"
@@ -55,10 +54,10 @@ const StudentClassDetailsPage = () => {
             </h1>
             <p className="text-lg text-gray-600">Class Code: {classCode}</p>
           </div>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 w-full">
             {/* Announcements */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="p-6">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden w-full">
+              <div className="p-6 w-full">
                 <h2
                   className="text-3xl font-bold text-gray-800 mb-4"
                   style={{ fontFamily: "lato" }}
@@ -72,11 +71,11 @@ const StudentClassDetailsPage = () => {
                       className="bg-white rounded-lg shadow-md p-4 w-full mr-4"
                       style={{ background: "none" }}
                     >
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                        {announcement.title}
-                      </h3>
-                      <p className="text-gray-600 mb-2">
-                        {announcement.content}
+                      <p
+                        className="text-sm font-semibold text-gray-800 mb-2 w-[30rem]"
+                        style={{ background: "none", fontFamily: "Poppins" }}
+                      >
+                        {announcement.announcementText}
                       </p>
                     </div>
                     {index !== announcements.length - 1 && (

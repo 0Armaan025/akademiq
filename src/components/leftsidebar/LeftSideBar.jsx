@@ -44,7 +44,7 @@ const LeftSideBar = () => {
             className="item-header text-lg font-semibold text-gray-200"
             style={{ background: "none" }}
           >
-            <Link to="/join-class" style={{ background: "none" }}>
+            <Link to="/student-class" style={{ background: "none" }}>
               Class
             </Link>
           </h3>

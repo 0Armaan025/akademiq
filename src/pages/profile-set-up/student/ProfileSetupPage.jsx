@@ -3,6 +3,7 @@ import "./profilesetuppage.css";
 import Navbar from "../../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const ProfileSetupPage = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +27,10 @@ const ProfileSetupPage = () => {
         formData
       );
       console.log(response.data); // Assuming your backend sends back saved user data
-      // Redirect or perform any other action upon successful submission
+      Cookies.set("authenticated", "true");
+      Cookies.set("role", "student");
+      localStorage.setItem("authenticated", "true");
+      localStorage.setItem("role", "student");
     } catch (error) {
       console.error("Error submitting form:", error);
       // Handle error
@@ -44,52 +48,52 @@ const ProfileSetupPage = () => {
           >
             Let's Setup your Profile! 🥳
           </h3>
-          </center>
-          <br />
-          <br />
-          <div className="detailsField flex flex-col justify-start items-start bg-[#dadada] p-8 rounded-lg ">
-            <label
-              className="text-xl text-[#33272a]"
-              style={{
-                fontFamily: "lato",
-                background: "none",
-                fontFamily: "Poppins",
-              }}
-            >
-              Enter your username
-            </label>
+        </center>
+        <br />
+        <br />
+        <div className="detailsField flex flex-col justify-start items-start bg-[#dadada] p-8 rounded-lg ">
+          <label
+            className="text-xl text-[#33272a]"
+            style={{
+              fontFamily: "lato",
+              background: "none",
+              fontFamily: "Poppins",
+            }}
+          >
+            Enter your username
+          </label>
 
-            <input
-              type="text"
-              className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
-            />
-            <br />
-            <label
-              className="text-xl text-[#33272a]"
-              style={{
-                fontFamily: "lato",
-                background: "none",
-                fontFamily: "Poppins",
-              }}
-            >
-              Enter your School name
-            </label>
+          <input
+            type="text"
+            className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
+          />
+          <br />
+          <label
+            className="text-xl text-[#33272a]"
+            style={{
+              fontFamily: "lato",
+              background: "none",
+              fontFamily: "Poppins",
+            }}
+          >
+            Enter your School name
+          </label>
 
-            <input
-              type="text"
-              className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
-            />
-            <br />
-            <label
-              className="text-xl text-[#33272a]"
-              style={{
-                fontFamily: "lato",
-                background: "none",
-                fontFamily: "Poppins",
-              }}
-            >
-              Enter your Father's name
-            </label>
+          <input
+            type="text"
+            className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
+          />
+          <br />
+          <label
+            className="text-xl text-[#33272a]"
+            style={{
+              fontFamily: "lato",
+              background: "none",
+              fontFamily: "Poppins",
+            }}
+          >
+            Enter your Father's name
+          </label>
 
             <input
               type="text"
@@ -125,8 +129,7 @@ const ProfileSetupPage = () => {
               </center>
             </div>
             </div>
-            </div>
-          
+          </form>
           <br />
       </>
     
