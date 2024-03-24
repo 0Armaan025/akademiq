@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./leftsidebar.css";
+import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
   const { logout } = useAuth0(); // Access the logout function from Auth0
@@ -13,7 +14,9 @@ const LeftSideBar = () => {
             className="item-header text-lg font-semibold text-gray-200"
             style={{ background: "none" }}
           >
-            Profile
+            <Link to="/student-profile" style={{ background: "none" }}>
+              Profile
+            </Link>
           </h3>
         </div>
         <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
@@ -21,7 +24,9 @@ const LeftSideBar = () => {
             className="item-header text-lg font-semibold text-gray-200"
             style={{ background: "none" }}
           >
-            Operations
+            <Link to="/student-operations" style={{ background: "none" }}>
+              Operations
+            </Link>
           </h3>
         </div>
         <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
@@ -29,7 +34,9 @@ const LeftSideBar = () => {
             className="item-header text-lg font-semibold text-gray-200"
             style={{ background: "none" }}
           >
-            Saves
+            <Link to="/saves" style={{ background: "none" }}>
+              Saves
+            </Link>
           </h3>
         </div>
         <div className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300">
@@ -37,7 +44,9 @@ const LeftSideBar = () => {
             className="item-header text-lg font-semibold text-gray-200"
             style={{ background: "none" }}
           >
-            Class
+            <Link to="/join-class" style={{ background: "none" }}>
+              Class
+            </Link>
           </h3>
         </div>
         <div

@@ -65,7 +65,12 @@ const ManageClassPage = () => {
       <Navbar />
       <TeacherLeftSideBar />
       <div className="container mx-auto mt-8">
-        <h2 className="text-2xl font-bold mb-4">Manage Class</h2>
+        <h2
+          className="text-4xl font-bold mb-4"
+          style={{ fontFamily: "Poppins" }}
+        >
+          Manage Class
+        </h2>
         <div className="p-4 ml-48 absolute bottom-0 w-[65rem]">
           <div className="mb-4 max-h-[20rem] overflow-y-auto">
             {announcements.map((item, index) => (
