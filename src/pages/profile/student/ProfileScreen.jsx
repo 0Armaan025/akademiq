@@ -50,7 +50,7 @@ const ProfileScreen = () => {
               Want to teach? Click here!
             </h4>
           </Link>
-          {!isAuthenticated && (
+          {isAuthenticated && (
             <div className="profileInfo bg-white shadow-md rounded-lg p-6">
               <div
                 className="grid grid-cols-1 md:grid-cols-2 gap-4"
