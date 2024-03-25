@@ -9,7 +9,7 @@ const TeacherProfileScreen = () => {
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "Armaan",
-    email: "armaan33000@gmail.com",
+    email: "armaan22000@gmail.com",
     school: "SHCS",
   });
 
@@ -40,7 +40,7 @@ const TeacherProfileScreen = () => {
             Good evening, {formData.name} 👋
           </h2>
           <br></br>
-          {!isAuthenticated && (
+          {isAuthenticated && (
             <div className="profile-info bg-white shadow-md rounded-lg p-3">
               <div
                 className="grid grid-cols-4 md:grid-cols-2 gap-4"

@@ -50,7 +50,7 @@ const NotesPage = () => {
       summarizedContent = await fetchData();
       setSummarizedText(summarizedContent);
     }
-    console.log("Summarized Content:", summarizedContent);
+    console.log("Summarized Content:", summarizedText);
   };
 
   const handleImageChange = (e) => {

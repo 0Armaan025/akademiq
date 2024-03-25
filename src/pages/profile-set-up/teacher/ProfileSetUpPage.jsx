@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 
 const ProfileSetUpPage = () => {
   const [formData, setFormData] = useState({
-    email: "armaan33000@gmail.com", // Initial email value
+    email: "armaan22000@gmail.com", // Initial email value
     name: "",
     schoolName: "",
     code: "0",

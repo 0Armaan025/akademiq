@@ -31,6 +31,9 @@ const ClassesListPage = () => {
         <h2 className="text-4xl font-bold" style={{ fontFamily: "Poppins" }}>
           Classes List
         </h2>
+        <Link to="/create-class">
+          <h4 className="text-blue-500 hover:cursor-pointer">Create Class</h4>
+        </Link>
       </center>
       <br />
       <div className="flex flex-col items-center gap-4 ml-56 mr-8">

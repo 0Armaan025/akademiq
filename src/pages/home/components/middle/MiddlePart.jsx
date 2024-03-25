@@ -69,7 +69,7 @@ const MiddlePart = () => {
             >
               <input
                 type="button"
-                onClick={isAuthenticated ? loginWithRedirect : null}
+                onClick={!isAuthenticated ? loginWithRedirect : null}
                 className="getStartedBtn bg-[#4a4949] text-[#fff7f7] p-4 pr-6 pl-6 rounded-lg mr-[19rem]"
                 style={{ fontFamily: "Poppins" }}
                 value="Get Started!"
