@@ -95,44 +95,43 @@ const ProfileSetupPage = () => {
             Enter your Father's name
           </label>
 
-            <input
-              type="text"
-              className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
-            />
-            <br />
-            <div
-              className="teacherSignUpDiv flex flex-row justify-end items-end w-full bg-none"
-              style={{ background: "none" }}
-            >
-              <Link to="/teacher-profile-setup" style={{ background: "none" }}>
-                <h4
-                  style={{ background: "none", fontFamily: "Poppins" }}
-                  className="text-[#33272a] hover:cursor-pointer"
-                >
-                  Click here to sign up as a teacher!
-                </h4>
-              </Link>
-            </div>
-            <br />
-            <div
-              className="buttonDiv w-full flex flex-row justify-center items-center bg-none"
-              style={{ background: "none" }}
-            >
-              <center>
-                <button
-                  className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
-                  value=""
-                  style={{ fontFamily: "Poppins" }}
-                >
-                  Set up!
-                </button>
-              </center>
-            </div>
-            </div>
-          </form>
+          <input
+            type="text"
+            className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
+          />
           <br />
-      </>
-    
+          <div
+            className="teacherSignUpDiv flex flex-row justify-end items-end w-full bg-none"
+            style={{ background: "none" }}
+          >
+            <Link to="/teacher-profile-setup" style={{ background: "none" }}>
+              <h4
+                style={{ background: "none", fontFamily: "Poppins" }}
+                className="text-[#33272a] hover:cursor-pointer"
+              >
+                Click here to sign up as a teacher!
+              </h4>
+            </Link>
+          </div>
+          <br />
+          <div
+            className="buttonDiv w-full flex flex-row justify-center items-center bg-none"
+            style={{ background: "none" }}
+          >
+            <center>
+              <button
+                className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
+                value=""
+                style={{ fontFamily: "Poppins" }}
+              >
+                Set up!
+              </button>
+            </center>
+          </div>
+        </div>
+      </div>
+      <br />
+    </>
   );
 };
 

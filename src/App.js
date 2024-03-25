@@ -17,6 +17,7 @@ import AboutUsPage from "./pages/about/AboutUsPage";
 import { Route, Routes } from "react-router-dom";
 import FlashCardPage from "./pages/flashcard_page/FlashCardPage";
 import NotesPage from "./pages/notes/NotesPage";
+import VirtualMentorPage from "./pages/virtual-mentor/VirtualMentorPage";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/flash-cards" element={<FlashCardPage />} />
         <Route path="/notes" element={<NotesPage />} />
+        <Route path="/virtual-mentor" element={<VirtualMentorPage />} />
       </Routes>
     </>
   );
