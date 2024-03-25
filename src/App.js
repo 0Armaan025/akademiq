@@ -18,6 +18,7 @@ import { Route, Routes } from "react-router-dom";
 import FlashCardPage from "./pages/flashcard_page/FlashCardPage";
 import NotesPage from "./pages/notes/NotesPage";
 import VirtualMentorPage from "./pages/virtual-mentor/VirtualMentorPage";
+import QuizMakingPage from "./pages/quiz-making-page/QuizMakingPage";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/flash-cards" element={<FlashCardPage />} />
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/virtual-mentor" element={<VirtualMentorPage />} />
+        <Route path="/make-quiz" element={<QuizMakingPage />} />
       </Routes>
     </>
   );

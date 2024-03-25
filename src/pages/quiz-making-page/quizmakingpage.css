@@ -1,0 +1,106 @@
+/* quizMakingPage.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .quiz-form {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .file-label {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .file-label:hover {
+    background-color: #0056b3;
+  }
+  
+  .quiz-code {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .quiz-questions {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .question h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .choices {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .choice {
+    width: calc(33.33% - 10px);
+  }
+  
+  .choice input {
+    margin-right: 5px;
+  }
+  
+  .choice label {
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+  }
+  
