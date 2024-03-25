@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Tesseract from "tesseract.js";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import LeftSideBar from "../../components/leftsidebar/LeftSideBar";
+
+
 
 const FlashCardPage = () => {
   const [paragraph, setParagraph] = useState("");
@@ -75,6 +78,8 @@ const FlashCardPage = () => {
     <>
       <Navbar />
       <div className="flex flex-col items-center py-8">
+        <LeftSideBar />
+        <div className="rightSide flex flex-col pl-64">
         <textarea
           className="w-96 h-32 resize-none border border-gray-300 rounded-md p-2 mb-4"
           placeholder="Enter paragraph text..."
@@ -123,6 +128,7 @@ const FlashCardPage = () => {
               </button>
             </div>
           )}
+        </div>
         </div>
         <br />
         <br />
