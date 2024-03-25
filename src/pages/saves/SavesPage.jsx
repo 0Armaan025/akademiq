@@ -54,7 +54,8 @@ const SavesPage = () => {
           className="text-3xl font-bold mb-4"
           style={{ fontFamily: "Poppins" }}
         >
-          Saves
+          Saves (CONTAINS DUMMY DATA = PROTOTYPE = WORK IN PROGRESS = WILL BE
+          CONTINUED AFTER HACKATHON ENDS)
         </h1>
         {savedItems.map((item) => (
           <div

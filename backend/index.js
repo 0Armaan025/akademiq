@@ -75,6 +75,8 @@ const Student = mongoose.model("Student", studentSchema);
 const Teacher = mongoose.model("Teacher", teacherSchema);
 // Endpoint to create a student user
 app.post("/create-student-user", async (req, res) => {
+  console.log("bro im here");
+
   try {
     const { email, name, motherName, fatherName, role } = req.body;
     const newUser = new Student({
@@ -84,11 +86,10 @@ app.post("/create-student-user", async (req, res) => {
       fatherName,
       role, // Set role as student
     });
+    console.log(email, name, motherName, fatherName, role);
     const savedUser = await newUser.save();
-
-    res.cookie("authState", "authenticated"); // 'authState' cookie
-    res.cookie("role", "student"); // 'role' cookie
-    res.status(201).json(savedUser);
+    console.log(savedUser);
+    res.status(200).json(savedUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

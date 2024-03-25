@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Navbar from "../../../components/navbar/Navbar";
 import LeftSideBar from "../../../components/leftsidebar/LeftSideBar";
 import "./studentclassdetailspage.css";
@@ -52,7 +53,12 @@ const StudentClassDetailsPage = () => {
             >
               {className}
             </h1>
-            <p className="text-lg text-gray-600">Class Code: {classCode}</p>
+            <p className="text-lg text-gray-600">
+              Class Code: {classCode}{" "}
+              <Link to="/join-class" className="ml-2 text-blue-500">
+                Join Class!
+              </Link>
+            </p>
           </div>
           <div className="grid grid-cols-1 gap-6 w-full">
             {/* Announcements */}

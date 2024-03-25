@@ -39,7 +39,9 @@ const TeacherLeftSideBar = () => {
         </div>
         <div
           className="item"
-          onClick={() => logout({ returnTo: window.location.origin })}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
         >
           <h3 className="itemHeader">Log Out</h3>
         </div>

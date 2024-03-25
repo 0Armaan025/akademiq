@@ -12,7 +12,7 @@ root.render(
       domain="reactconnect.us.auth0.com"
       clientId="ROxWLgt8W5v6EZp9fTz25SiXP2onzkQC"
       authorizationParams={{
-        redirect_uri: window.location.origin,
+        redirect_uri: "http://localhost:3000/student-profile-setup",
       }}
     >
       <BrowserRouter>

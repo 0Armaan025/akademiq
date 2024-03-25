@@ -9,8 +9,8 @@ const TeacherProfileScreen = () => {
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "Armaan",
-    email: "armaan33000@gmail.com",
-    school: "",
+    email: "armaan22000@gmail.com",
+    school: "SHCS",
   });
 
   const handleInputChange = (e) => {
@@ -40,11 +40,19 @@ const TeacherProfileScreen = () => {
             Good evening, {formData.name} 👋
           </h2>
           <br></br>
-          {!isAuthenticated && (
+          {isAuthenticated && (
             <div className="profile-info bg-white shadow-md rounded-lg p-3">
-              <div className="grid grid-cols-4 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-gray-600">Name: </label>
+              <div
+                className="grid grid-cols-4 md:grid-cols-2 gap-4"
+                style={{ background: "none" }}
+              >
+                <div style={{ background: "none" }}>
+                  <label
+                    className="text-gray-600"
+                    style={{ background: "none" }}
+                  >
+                    Name:{" "}
+                  </label>
                   {editing ? (
                     <input
                       type="text"
@@ -54,11 +62,21 @@ const TeacherProfileScreen = () => {
                       className="form-input1"
                     />
                   ) : (
-                    <span className="text-gray-800">{formData.name}</span>
+                    <span
+                      className="text-gray-800 ml-2"
+                      style={{ background: "none" }}
+                    >
+                      {formData.name}
+                    </span>
                   )}
                 </div>
-                <div>
-                  <label className="text-gray-600">Email: </label>
+                <div style={{ background: "none" }}>
+                  <label
+                    className="text-gray-600"
+                    style={{ background: "none" }}
+                  >
+                    Email:{" "}
+                  </label>
                   {editing ? (
                     <input
                       type="email"
@@ -68,11 +86,21 @@ const TeacherProfileScreen = () => {
                       className="form-input"
                     />
                   ) : (
-                    <span className="text-gray-800">{formData.email}</span>
+                    <span
+                      className="text-gray-800 ml-2"
+                      style={{ background: "none" }}
+                    >
+                      {formData.email}
+                    </span>
                   )}
                 </div>
-                <div>
-                  <label className="text-gray-600">School: </label>
+                <div style={{ background: "none" }}>
+                  <label
+                    className="text-gray-600"
+                    style={{ background: "none" }}
+                  >
+                    School:{" "}
+                  </label>
                   {editing ? (
                     <input
                       type="text"
@@ -82,16 +110,25 @@ const TeacherProfileScreen = () => {
                       className="form-input"
                     />
                   ) : (
-                    <span className="text-gray-800">{formData.school}</span>
+                    <span
+                      className="text-gray-800  ml-2"
+                      style={{ background: "none" }}
+                    >
+                      {formData.school}
+                    </span>
                   )}
                 </div>
               </div>
               <br></br>
-              
+
               {editing ? (
-                <button onClick={handleSave} className="btn-save">Save</button>
+                <button onClick={handleSave} className="btn-save">
+                  Save
+                </button>
               ) : (
-                <button onClick={() => setEditing(true)} className="btn-edit">Edit</button>
+                <button onClick={() => setEditing(true)} className="btn-edit">
+                  Edit
+                </button>
               )}
             </div>
           )}

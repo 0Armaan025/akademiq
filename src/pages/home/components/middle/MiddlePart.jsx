@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./middlepart.css"; // Importing the CSS file for MiddlePart styling
+import { Link } from "react-router-dom";
 
 const MiddlePart = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const { loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
     };
-  
+
+    getLocalStorageSystem();
+
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
-  
+
+  const getLocalStorageSystem = () => {
+    if (localStorage.getItem("role")) {
+      setRole(localStorage.getItem("role").toString());
+    }
+  };
 
   // Determine the current paragraph based on scroll position
   const currentParagraph = Math.floor(scrollPosition / window.innerHeight);
@@ -47,13 +58,23 @@ const MiddlePart = () => {
               engagement, and foster growth, all recorded seamlessly in MongoDB.
             </h4>
             <br />
-            <input
-              type="button"
-              onClick={loginWithRedirect}
-              className="getStartedBtn bg-[#4a4949] text-[#fff7f7] p-4 pr-6 pl-6 rounded-lg mr-[19rem]"
-              style={{ fontFamily: "Poppins" }}
-              value="Get Started!"
-            />
+            <Link
+              to={
+                isAuthenticated
+                  ? role === "teacher"
+                    ? "/teacher-profile"
+                    : "/student-profile"
+                  : ""
+              }
+            >
+              <input
+                type="button"
+                onClick={!isAuthenticated ? loginWithRedirect : null}
+                className="getStartedBtn bg-[#4a4949] text-[#fff7f7] p-4 pr-6 pl-6 rounded-lg mr-[19rem]"
+                style={{ fontFamily: "Poppins" }}
+                value="Get Started!"
+              />
+            </Link>
           </div>
           <div className="boxSpacer ml-32 "></div>
           <div className="rightBox flex flex-col justify-center items-center">
