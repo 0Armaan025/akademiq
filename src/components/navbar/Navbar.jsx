@@ -2,8 +2,23 @@ import React from "react";
 import "./navbar.css";
 import { loginWithRedirect, useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    getLocalStorageSystem();
+  }, []);
+
+  const getLocalStorageSystem = () => {
+    if (localStorage.getItem("role")) {
+      setRole(localStorage.getItem("role").toString());
+    }
+  };
+
   const { loginWithRedirect } = useAuth0();
   return (
     <>
@@ -78,11 +93,22 @@ const Navbar = () => {
                   aria-current="page"
                 >
                   <img
-                    onClick={loginWithRedirect}
+                    onClick={
+                      isAuthenticated
+                        ? () => {
+                            if (role === "teacher") {
+                              window.location.href =
+                                "http://localhost:3000/teacher-profile"; // Assuming you have access to history object
+                            } else {
+                              window.location.href =
+                                "http://localhost:3000/student-profile";
+                            }
+                          }
+                        : loginWithRedirect
+                    }
                     src="https://cdn-icons-png.flaticon.com/128/4333/4333609.png"
                     alt="profile picture"
                     height="30px"
-                    // className="mb-1"
                     width="35px"
                   />
                 </a>

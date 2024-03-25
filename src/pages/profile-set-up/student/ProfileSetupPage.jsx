@@ -9,8 +9,8 @@ const ProfileSetupPage = () => {
   const [formData, setFormData] = useState({
     email: "armaan33000@gmail.com", // Initial email value
     name: "",
-    fatherName: "",
     motherName: "",
+    fatherName: "",
     role: "student",
   });
 
@@ -19,8 +19,8 @@ const ProfileSetupPage = () => {
   };
 
   const handleSubmit = async (e) => {
-    // yes for student
     e.preventDefault();
+    console.log(formData);
     try {
       const response = await axios.post(
         "http://localhost:5000/create-student-user",
@@ -31,6 +31,7 @@ const ProfileSetupPage = () => {
       Cookies.set("role", "student");
       localStorage.setItem("authenticated", "true");
       localStorage.setItem("role", "student");
+      window.location.href = "http://localhost:3000/student-profile";
     } catch (error) {
       console.error("Error submitting form:", error);
       // Handle error
@@ -64,6 +65,8 @@ const ProfileSetupPage = () => {
           </label>
 
           <input
+            onChange={handleChange}
+            name="name"
             type="text"
             className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
           />
@@ -76,10 +79,12 @@ const ProfileSetupPage = () => {
               fontFamily: "Poppins",
             }}
           >
-            Enter your School name
+            Enter your Mother's name
           </label>
 
           <input
+            onChange={handleChange}
+            name="motherName"
             type="text"
             className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
           />
@@ -97,6 +102,8 @@ const ProfileSetupPage = () => {
 
           <input
             type="text"
+            onChange={handleChange}
+            name="fatherName"
             className="p-2 px-2 w-[380px] mt-2 border-2 border-black rounded-lg"
           />
           <br />
@@ -120,6 +127,7 @@ const ProfileSetupPage = () => {
           >
             <center>
               <button
+                onClick={handleSubmit}
                 className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
                 value=""
                 style={{ fontFamily: "Poppins" }}

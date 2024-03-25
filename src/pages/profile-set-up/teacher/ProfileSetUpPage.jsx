@@ -128,6 +128,7 @@ const ProfileSetUpPage = () => {
             >
               <center>
                 <button
+                  onClick={handleSubmit}
                   className="setupProfileBtn py-4 px-16 text-xl font-semibold rounded-sm bg-[#818181] text-[#fff7f7] hover:scale-105 transition-transform"
                   value=""
                   style={{ fontFamily: "Poppins" }}

@@ -9,8 +9,8 @@ const ProfileScreen = () => {
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "Armaan",
-    fatherName: "",
-    motherName: "",
+    fatherName: "someone",
+    motherName: "someone",
     email: "armaan33000@gmail.com",
   });
 
@@ -45,7 +45,7 @@ const ProfileScreen = () => {
           >
             Good evening, Armaan 👋
           </h2>
-          <Link to="/teacher-profile-setup">  
+          <Link to="/teacher-profile-setup">
             <h4 className="absolute right-[18rem] top-[9rem] text-blue-800 hover:cursor-pointer">
               Want to teach? Click here!
             </h4>
@@ -74,7 +74,7 @@ const ProfileScreen = () => {
                     />
                   ) : (
                     <span
-                      className="text-gray-800"
+                      className="text-gray-800 ml-2"
                       style={{ background: "none" }}
                     >
                       {formData.name}
@@ -99,7 +99,7 @@ const ProfileScreen = () => {
                     />
                   ) : (
                     <span
-                      className="text-gray-800"
+                      className="text-gray-800 ml-2"
                       style={{ background: "none" }}
                     >
                       {formData.fatherName}
@@ -124,7 +124,7 @@ const ProfileScreen = () => {
                     />
                   ) : (
                     <span
-                      className="text-gray-800"
+                      className="text-gray-800 ml-2"
                       style={{ background: "none" }}
                     >
                       {formData.motherName}
@@ -149,7 +149,7 @@ const ProfileScreen = () => {
                     />
                   ) : (
                     <span
-                      className="text-gray-800"
+                      className="text-gray-800 ml-2"
                       style={{ background: "none" }}
                     >
                       {formData.email}

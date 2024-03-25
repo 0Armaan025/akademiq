@@ -51,7 +51,9 @@ const LeftSideBar = () => {
         </div>
         <div
           className="item py-4 px-6 hover:bg-indigo-700 cursor-pointer transition duration-300"
-          onClick={() => logout({ returnTo: window.location.origin })}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
         >
           <h3
             className="item-header text-lg font-semibold text-gray-200"
